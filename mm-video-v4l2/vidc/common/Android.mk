@@ -24,11 +24,11 @@ libmm-vidc-def += -D_ANDROID_ICS_
 libmm-vidc-inc      := $(LOCAL_PATH)/inc
 libmm-vidc-inc      += $(TOP)/system/core/libion/include
 libmm-vidc-inc      += $(TOP)/system/core/libion/kernel-headers
-libmm-vidc-inc      += $(TOP)/hardware/qcom/media/mm-core/inc
-libmm-vidc-inc      += $(TOP)/hardware/qcom/media/mm-video-v4l2/vidc/vdec/inc
-libmm-vidc-inc      += $(TOP)/hardware/qcom/media/mm-video-v4l2/vidc/venc/inc
+libmm-vidc-inc      += $(call project-path-for,qcom-media)/mm-core/inc
+libmm-vidc-inc      += $(call project-path-for,qcom-media)/mm-video-v4l2/vidc/vdec/inc
+libmm-vidc-inc      += $(call project-path-for,qcom-media)/mm-video-v4l2/vidc/venc/inc
 libmm-vidc-inc      += $(TARGET_OUT_HEADERS)/qcom/display
-libmm-vidc-inc      += $(TOP)/hardware/qcom/media/libc2dcolorconvert
+libmm-vidc-inc      += $(call project-path-for,qcom-media)/libc2dcolorconvert
 libmm-vidc-inc      += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 
 LOCAL_MODULE                    := libOmxVidcCommon
