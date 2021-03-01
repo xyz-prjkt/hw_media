@@ -1,8 +1,9 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
+include $(LIBION_HEADER_PATH_WRAPPER)
 
 # ---------------------------------------------------------------------------------
-# 				Common definitons
+#                      Common definitons
 # ---------------------------------------------------------------------------------
 
 libmm-vdec-def := -D__alignx\(x\)=__attribute__\(\(__aligned__\(x\)\)\)
@@ -88,6 +89,8 @@ libmm-vdec-inc          += $(call project-path-for,qcom-media)/hypv-intercept
 libmm-vdec-inc          += $(TARGET_OUT_HEADERS)/mm-video/SwVdec
 libmm-vdec-inc          += $(TARGET_OUT_HEADERS)/mm-video/swvdec
 libmm-vdec-inc          += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
+libmm-vdec-inc          += $(TOP)/frameworks/native/include/media/openmax
+libmm-vdec-inc          += $(TOP)/frameworks/native/include/media/hardware
 
 ifeq ($(PLATFORM_SDK_VERSION), 18)  #JB_MR2
 libmm-vdec-def += -DANDROID_JELLYBEAN_MR2=1

@@ -1,8 +1,9 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
+include $(LIBION_HEADER_PATH_WRAPPER)
 
 # ---------------------------------------------------------------------------------
-# 				Common definitons
+#                      Common definitons
 # ---------------------------------------------------------------------------------
 
 libmm-venc-def := -g -O3 -Dlrintf=_ffix_r
@@ -110,6 +111,8 @@ libmm-venc-inc      += $(TARGET_OUT_HEADERS)/adreno
 libmm-venc-inc      += $(call project-path-for,qcom-media)/libc2dcolorconvert
 libmm-venc-inc      += $(call project-path-for,qcom-media)/hypv-intercept
 libmm-venc-inc      += $(TARGET_OUT_HEADERS)/libvqzip
+libmm-venc-inc      += frameworks/native/include/media/hardware
+libmm-venc-inc      += frameworks/native/include/media/openmax
 libmm-venc-inc      += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 ifeq ($(call is-board-platform-in-list, $(TARGETS_THAT_SUPPORT_PQ)),true)
 libmm-venc-inc      += $(TARGET_OUT_HEADERS)/libgpustats
