@@ -1,8 +1,9 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
+include $(LIBION_HEADER_PATH_WRAPPER)
 
 # ---------------------------------------------------------------------------------
-# 				Common definitons
+#                      Common definitons
 # ---------------------------------------------------------------------------------
 
 libmm-venc-def := -g -O3 -Dlrintf=_ffix_r
@@ -103,9 +104,10 @@ endif
 
 # Common Includes
 libmm-venc-inc      := $(LOCAL_PATH)/inc
-libmm-venc-inc      += $(call project-path-for,qcom-media)/mm-video-v4l2/vidc/common/inc
-libmm-venc-inc      += $(call project-path-for,qcom-media)/mm-core/inc
-libmm-venc-inc      += $(call project-path-for,qcom-media)/libstagefrighthw
+libmm-venc-inc      += $(LIBION_HEADER_PATHS)
+libmm-venc-inc      += $(TOP)/hardware/qcom/media/mm-video-v4l2/vidc/common/inc
+libmm-venc-inc      += hardware/qcom/media/mm-core/inc
+libmm-venc-inc      += hardware/qcom/media/libstagefrighthw
 libmm-venc-inc      += $(TARGET_OUT_HEADERS)/adreno
 libmm-venc-inc      += $(call project-path-for,qcom-media)/libc2dcolorconvert
 libmm-venc-inc      += $(call project-path-for,qcom-media)/hypv-intercept
@@ -127,7 +129,7 @@ libmm-venc-def += -DMAX_H264_LEVEL_52
 endif
 
 # ---------------------------------------------------------------------------------
-# 			Make the Shared library (libOmxVenc)
+#                       Make the Shared library (libOmxVenc)
 # ---------------------------------------------------------------------------------
 
 include $(CLEAR_VARS)
@@ -167,7 +169,7 @@ include $(BUILD_SHARED_LIBRARY)
 
 ifeq ($(call is-board-platform-in-list, $(TARGETS_THAT_NEED_SW_VENC_MPEG4)),true)
 # ---------------------------------------------------------------------------------
-# 			Make the Shared library (libOmxSwVencMpeg4)
+#                       Make the Shared library (libOmxSwVencMpeg4)
 # ---------------------------------------------------------------------------------
 
 include $(CLEAR_VARS)
@@ -207,5 +209,5 @@ endif
 
 
 # ---------------------------------------------------------------------------------
-# 					END
+#                                       END
 # ---------------------------------------------------------------------------------
